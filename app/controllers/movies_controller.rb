@@ -17,6 +17,7 @@ class MoviesController < ApplicationController
       year: params["year"],
       plot: params["plot"]
     )
+    render :show
   end
 
   def update
@@ -26,11 +27,13 @@ class MoviesController < ApplicationController
       year: params["year"] || @movie.year,
       plot: params["plot"] || @movie.plot
     )
+    render :show
   end
 
   def destroy
     @movie = Movie.find(params["id"])
 
     @movie.destroy
+    render json: { message: "Sucessfully Deleted!!!" }
   end
 end
