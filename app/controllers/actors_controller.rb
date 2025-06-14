@@ -15,7 +15,8 @@ class ActorsController < ApplicationController
     @actor = Actor.create(
       first_name: params["first_name"],
       last_name: params["last_name"],
-      known_for: params["known_for"]
+      known_for: params["known_for"],
+      movie_id: params["movie_id"]
     )
     # if @actor.vaild?
     #   render :show
@@ -29,7 +30,8 @@ class ActorsController < ApplicationController
     @actor.update(
       first_name: params["first_name"] || @actor.first_name,
       last_name: params["last_name"] || @actor.last_name,
-      known_for: params["known_for"] || @actor.known_for
+      known_for: params["known_for"] || @actor.known_for,
+      movie_id: params["movie_id"] || @actor.movie_id
     )
   end
 
